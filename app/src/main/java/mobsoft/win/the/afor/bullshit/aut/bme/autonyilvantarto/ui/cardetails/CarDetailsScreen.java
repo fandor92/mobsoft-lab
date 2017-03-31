@@ -1,5 +1,7 @@
 package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.cardetails;
 
 public interface CarDetailsScreen {
-    void showMessage(String text);
+    void showDetails(String showCar);
+    void showDeleteSuccessPopup(String message);
+    void showDeleteFailPopup(String message);
 }

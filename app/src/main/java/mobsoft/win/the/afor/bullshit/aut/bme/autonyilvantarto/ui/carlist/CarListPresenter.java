@@ -1,5 +1,7 @@
 package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.carlist;
 
+import java.util.ArrayList;
+
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 
 /**
@@ -9,6 +11,11 @@ import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 public class CarListPresenter extends Presenter<CarListScreen> {
 
     public CarListPresenter() {
+    }
+
+    public void getCars()
+    {
+        screen.showCars(new ArrayList<String>());
     }
 
     @Override

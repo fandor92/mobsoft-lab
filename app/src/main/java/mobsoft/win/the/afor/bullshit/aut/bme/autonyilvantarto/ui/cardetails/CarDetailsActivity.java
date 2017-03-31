@@ -2,7 +2,6 @@ package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.cardetails;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -25,6 +24,7 @@ public class CarDetailsActivity extends AppCompatActivity implements CarDetailsS
     protected void onStart() {
         super.onStart();
         carDetailsPresenter.attachScreen(this);
+        carDetailsPresenter.getCar(1);
     }
 
     @Override
@@ -34,7 +34,19 @@ public class CarDetailsActivity extends AppCompatActivity implements CarDetailsS
     }
 
     @Override
-    public void showMessage(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    public void showDetails(String details) {
+
     }
+
+    @Override
+    public void showDeleteSuccessPopup(String message) {
+
+    }
+
+    @Override
+    public void showDeleteFailPopup(String message) {
+
+    }
+
+
 }

@@ -11,6 +11,23 @@ public class CarDetailsPresenter extends Presenter<CarDetailsScreen> {
     public CarDetailsPresenter() {
     }
 
+    public void getCar(int id)
+    {
+        screen.showDetails("asd");
+    }
+
+    public void deleteCar(int id)
+    {
+        if (true)
+        {
+            screen.showDeleteSuccessPopup("sikeres törlés");
+        }
+        else
+        {
+            screen.showDeleteFailPopup("sikertelen törlés");
+        }
+    }
+
     @Override
     public void attachScreen(CarDetailsScreen screen) {
         super.attachScreen(screen);

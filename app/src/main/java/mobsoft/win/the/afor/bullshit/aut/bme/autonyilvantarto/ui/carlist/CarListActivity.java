@@ -2,7 +2,8 @@ package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.carlist;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -25,6 +26,7 @@ public class CarListActivity extends AppCompatActivity implements CarListScreen 
     protected void onStart() {
         super.onStart();
         carListPresenter.attachScreen(this);
+        carListPresenter.getCars();
     }
 
     @Override
@@ -34,7 +36,8 @@ public class CarListActivity extends AppCompatActivity implements CarListScreen 
     }
 
     @Override
-    public void showMessage(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    public void showCars(List<String> text)
+    {
+
     }
 }

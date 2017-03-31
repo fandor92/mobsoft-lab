@@ -37,4 +37,24 @@ public class NewCarActivity extends AppCompatActivity implements NewCarScreen {
     public void showMessage(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void showSuccessfulCreate(String s) {
+
+    }
+
+    @Override
+    public void showFailedCreate(String s) {
+
+    }
+
+    @Override
+    public void showSuccessfulEdit(String s) {
+
+    }
+
+    @Override
+    public void showFailedulEdit(String s) {
+
+    }
 }

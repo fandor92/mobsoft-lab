@@ -33,8 +33,18 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
         loginPresenter.detachScreen();
     }
 
+    public void login()
+    {
+        loginPresenter.doLogin("username","password");
+    }
+
     @Override
-    public void showMessage(String text) {
+    public void loginSucceeded(String text) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void loginError(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 }

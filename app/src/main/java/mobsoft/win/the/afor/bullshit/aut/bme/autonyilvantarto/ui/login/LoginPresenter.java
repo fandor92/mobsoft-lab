@@ -11,6 +11,18 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     public LoginPresenter() {
     }
 
+    public void doLogin(String userName, String password)
+    {
+        if (true)
+        {
+            screen.loginSucceeded("sikerült");
+        }
+        else
+        {
+            screen.loginError("nem sikerült");
+        }
+    }
+
     @Override
     public void attachScreen(LoginScreen screen) {
         super.attachScreen(screen);
