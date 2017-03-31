@@ -1,4 +1,4 @@
-package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.main;
+package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.carlist;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,10 @@ import javax.inject.Inject;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.R;
 
-public class MainActivity extends AppCompatActivity implements MainScreen{
+public class CarListActivity extends AppCompatActivity implements CarListScreen {
 
     @Inject
-    MainPresenter mainPresenter;
+    CarListPresenter carListPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity implements MainScreen{
     @Override
     protected void onStart() {
         super.onStart();
-        mainPresenter.attachScreen(this);
+        carListPresenter.attachScreen(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mainPresenter.detachScreen();
+        carListPresenter.detachScreen();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.main;
+package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.cardetails;
 
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 
@@ -6,13 +6,13 @@ import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
  * Created by Patrik on 2017. 03. 19..
  */
 
-public class MainPresenter extends Presenter<MainScreen> {
+public class CarDetailsPresenter extends Presenter<CarDetailsScreen> {
 
-    public MainPresenter() {
+    public CarDetailsPresenter() {
     }
 
     @Override
-    public void attachScreen(MainScreen screen) {
+    public void attachScreen(CarDetailsScreen screen) {
         super.attachScreen(screen);
     }
 
