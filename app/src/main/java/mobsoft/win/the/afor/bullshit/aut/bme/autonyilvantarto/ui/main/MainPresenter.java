@@ -8,16 +8,7 @@ import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 
 public class MainPresenter extends Presenter<MainScreen> {
 
-    private static MainPresenter instance = null;
-
-    private MainPresenter() {
-    }
-
-    public static MainPresenter getInstance() {
-        if (instance == null) {
-            instance = new MainPresenter();
-        }
-        return instance;
+    public MainPresenter() {
     }
 
     @Override
