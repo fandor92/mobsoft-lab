@@ -29,12 +29,12 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public void saveUser(User user) {
-
+        SugarRecord.saveInTx(user);
     }
 
     @Override
     public void deleteUser(User user) {
-
+        SugarRecord.deleteInTx(user);
     }
 
     @Override
@@ -44,22 +44,17 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public List<Car> getCars() {
-        return null;
+        return SugarRecord.listAll(Car.class);
     }
 
     @Override
-    public void saveCar(Long id) {
-
+    public void saveCar(Car car) {
+        SugarRecord.saveInTx(car);
     }
 
     @Override
-    public void updateCar(Long id) {
-
-    }
-
-    @Override
-    public void deleteCar(Long id) {
-
+    public void deleteCar(Car car) {
+        SugarRecord.deleteInTx(car);
     }
 
     @Override

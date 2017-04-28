@@ -23,11 +23,9 @@ public interface Repository {
 
     List<Car> getCars();
 
-    void saveCar(Long id);
+    void saveCar(Car car);
 
-    void updateCar(Long id);
-
-    void deleteCar(Long id);
+    void deleteCar(Car car);
 
     boolean isInDB(Car car);
 }
