@@ -4,8 +4,6 @@ public class SaveUserEvent {
 	private int code;
 	private Throwable throwable;
 
-	//<editor-fold desc="Constructors|Getters|Setters">
-
 	public SaveUserEvent() {
 	}
 
@@ -24,6 +22,4 @@ public class SaveUserEvent {
 	public void setThrowable(Throwable throwable) {
 		this.throwable = throwable;
 	}
-
-//</editor-fold>
 }

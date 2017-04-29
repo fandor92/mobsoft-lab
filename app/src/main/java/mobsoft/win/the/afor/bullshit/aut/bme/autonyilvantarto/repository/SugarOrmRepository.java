@@ -24,7 +24,7 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public User getUser() {
-        return null;
+        return SugarRecord.findAll(User.class).next();
     }
 
     @Override

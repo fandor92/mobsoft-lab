@@ -7,8 +7,6 @@ public class GetCarEvent {
 	private Car car;
 	private Throwable throwable;
 
-	//<editor-fold desc="Constructors|Getters|Setters">
-
 	public GetCarEvent() {
 	}
 
@@ -36,5 +34,4 @@ public class GetCarEvent {
 		this.throwable = throwable;
 	}
 
-//</editor-fold>
 }

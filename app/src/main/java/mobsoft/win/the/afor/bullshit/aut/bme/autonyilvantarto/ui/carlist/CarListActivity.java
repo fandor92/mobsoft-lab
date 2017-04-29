@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.R;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
 
 public class CarListActivity extends AppCompatActivity implements CarListScreen {
 
@@ -36,8 +37,13 @@ public class CarListActivity extends AppCompatActivity implements CarListScreen 
     }
 
     @Override
-    public void showCars(List<String> text)
+    public void showCars(List<Car> cars)
     {
+
+    }
+
+    @Override
+    public void showFail(String message) {
 
     }
 }

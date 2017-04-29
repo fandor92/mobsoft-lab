@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.R;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
 
 public class NewCarActivity extends AppCompatActivity implements NewCarScreen {
 
@@ -33,28 +34,19 @@ public class NewCarActivity extends AppCompatActivity implements NewCarScreen {
         newCarPresenter.detachScreen();
     }
 
-    @Override
-    public void showMessage(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
-    public void showSuccessfulCreate(String s) {
+    public void fillValues(Car car) {
 
     }
 
     @Override
-    public void showFailedCreate(String s) {
+    public void showSuccess(String message) {
 
     }
 
     @Override
-    public void showSuccessfulEdit(String s) {
-
-    }
-
-    @Override
-    public void showFailedulEdit(String s) {
+    public void showFail(String message) {
 
     }
 }

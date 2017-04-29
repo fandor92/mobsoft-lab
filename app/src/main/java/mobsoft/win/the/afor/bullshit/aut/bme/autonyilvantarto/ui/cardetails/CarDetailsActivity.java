@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.R;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
 
 public class CarDetailsActivity extends AppCompatActivity implements CarDetailsScreen {
 
@@ -34,17 +35,17 @@ public class CarDetailsActivity extends AppCompatActivity implements CarDetailsS
     }
 
     @Override
-    public void showDetails(String details) {
+    public void showDetails(Car car) {
 
     }
 
     @Override
-    public void showDeleteSuccessPopup(String message) {
+    public void showSuccess(String message) {
 
     }
 
     @Override
-    public void showDeleteFailPopup(String message) {
+    public void showFail(String message) {
 
     }
 

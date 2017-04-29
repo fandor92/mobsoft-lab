@@ -7,8 +7,6 @@ public class GetUserEvent {
 	private User user;
 	private Throwable throwable;
 
-	//<editor-fold desc="Constructors|Getters|Setters">
-
 	public GetUserEvent() {
 	}
 
@@ -35,6 +33,4 @@ public class GetUserEvent {
 	public void setThrowable(Throwable throwable) {
 		this.throwable = throwable;
 	}
-
-//</editor-fold>
 }

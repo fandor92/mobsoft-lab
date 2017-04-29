@@ -4,8 +4,6 @@ public class DeleteUserEvent {
 	private int code;
 	private Throwable throwable;
 
-	//<editor-fold desc="Constructors|Getters|Setters">
-
 	public DeleteUserEvent() {
 	}
 
@@ -24,6 +22,4 @@ public class DeleteUserEvent {
 	public void setThrowable(Throwable throwable) {
 		this.throwable = throwable;
 	}
-
-//</editor-fold>
 }
