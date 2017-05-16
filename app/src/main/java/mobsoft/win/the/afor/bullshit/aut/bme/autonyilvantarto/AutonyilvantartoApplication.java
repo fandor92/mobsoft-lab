@@ -14,6 +14,12 @@ public class AutonyilvantartoApplication extends Application {
 
 	public static AutonyilvantartoApplicationComponent injector;
 
+    public void setInjector(AutonyilvantartoApplicationComponent appComponent) {
+        injector = appComponent;
+        injector.inject(this);
+        repository.open(getApplicationContext());
+    }
+
 	@Override
 	public void onCreate() {
 		super.onCreate();

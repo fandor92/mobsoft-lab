@@ -1,14 +1,13 @@
 package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.carlist;
 
-import java.util.ArrayList;
 import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.CarInteractor;
-import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.events.GetCarEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.events.GetCarsEvent;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.UserInteractor;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 
 import static mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication.injector;
@@ -17,6 +16,9 @@ public class CarListPresenter extends Presenter<CarListScreen> {
 
     @Inject
     CarInteractor carInteractor;
+
+    @Inject
+    UserInteractor userInteractor;
 
     @Inject
     Executor executor;
@@ -45,6 +47,15 @@ public class CarListPresenter extends Presenter<CarListScreen> {
             @Override
             public void run() {
                 carInteractor.getCars();
+            }
+        });
+    }
+
+    public void logout() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userInteractor.deleteUser();
             }
         });
     }

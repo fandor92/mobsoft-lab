@@ -6,9 +6,12 @@ import de.greenrobot.event.EventBus;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.DeleteUserEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.GetUserEvent;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.LoginEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.SaveUserEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.User;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.network.api.UserApi;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.repository.Repository;
+import retrofit2.Response;
 
 public class UserInteractor {
 
@@ -16,11 +19,30 @@ public class UserInteractor {
 	Repository repository;
 	@Inject
 	EventBus bus;
+    @Inject
+    UserApi userApi;
 
 	public UserInteractor() {
 		AutonyilvantartoApplication.injector.inject(this);
 	}
 
+    public void login(final String username, final String password) {
+        LoginEvent event = new LoginEvent();
+        try {
+            Response<Void> response = userApi.userLoginGet().execute();
+            event.setSuccess(response.isSuccess());
+            if (response.isSuccess()) {
+                User user = new User();
+                user.setEmail(username);
+                user.setPassword(password);
+                event.setUser(user);
+            }
+            bus.post(event);
+        } catch (Exception e) {
+            event.setThrowable(e);
+            bus.post(event);
+        }
+    }
     public void getUser() {
         GetUserEvent event = new GetUserEvent();
         try {
@@ -44,10 +66,10 @@ public class UserInteractor {
         }
     }
 
-	public void deleteUser(User user) {
+    public void deleteUser() {
         DeleteUserEvent event = new DeleteUserEvent();
         try {
-            repository.deleteUser(user);
+            repository.deleteUser(repository.getUser());
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);

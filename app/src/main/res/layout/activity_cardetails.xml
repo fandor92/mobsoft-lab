@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fuelTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Üzemanyag:"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignStart="@+id/yearTV" />
+
+    <TextView
+        android:id="@+id/brandTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView8"
+        android:layout_alignStart="@+id/yearTV"
+        android:text="Márka:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/yearTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Évjárat:"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignStart="@+id/engineTV" />
+
+    <TextView
+        android:id="@+id/engineTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1800ccm"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/mileageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Futott km:"
+        android:textSize="22sp"
+        android:layout_above="@+id/textView5"
+        android:layout_alignStart="@+id/engineTV" />
+
+    <TextView
+        android:id="@+id/plateNumberTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rendszám:"
+        android:textSize="22sp"
+        android:layout_above="@+id/textView4"
+        android:layout_alignStart="@+id/mileageTV" />
+
+    <TextView
+        android:id="@+id/typeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Típus:"
+        android:textSize="22sp"
+        android:layout_alignBaseline="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_alignStart="@+id/fuelTV" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="28dp"
+        android:text="Üzemanyag:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="28dp"
+        android:text="Márka:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="28dp"
+        android:text="Évjárat:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="28dp"
+        android:text="Hengerűrtartalom:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="28dp"
+        android:text="Futott km:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="43dp"
+        android:text="Rendszám:"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="28dp"
+        android:text="Típus:"
+        android:textSize="22sp" />
+</RelativeLayout>

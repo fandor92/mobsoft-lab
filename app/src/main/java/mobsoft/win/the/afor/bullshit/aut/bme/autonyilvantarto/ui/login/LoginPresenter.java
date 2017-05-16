@@ -6,8 +6,9 @@ import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.UserInteractor;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.GetUserEvent;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.LoginEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.events.SaveUserEvent;
-import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.User;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 
 import static mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication.injector;
@@ -44,18 +45,24 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     }
 
     public void doLogin(final String userName, final String password) {
-        if (true) {
-            executor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    User user = new User(null, userName, password);
-                    userInteractor.saveUser(user);
-                }
-            });
-        } else {
-            screen.loginError("Error, something bad happened.");
-        }
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userInteractor.login(userName, password);
+            }
+        });
     }
+
+    public void isUserLoggedIn() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userInteractor.getUser();
+            }
+        });
+    }
+
+
 
     public void onEventMainThread(SaveUserEvent event) {
         if (event.getThrowable() != null) {
@@ -66,6 +73,35 @@ public class LoginPresenter extends Presenter<LoginScreen> {
         } else {
             if (screen != null) {
                 screen.loginSucceeded("Login succeeded");
+            }
+        }
+    }
+
+    public void onEventMainThread(GetUserEvent event) {
+        if (screen != null) {
+            if (event.getUser() != null)
+                screen.loginSucceeded("Login succeeded");
+        }
+    }
+
+    public void onEventMainThread(final LoginEvent event) {
+        if (event.getThrowable() != null) {
+            event.getThrowable().printStackTrace();
+            if (screen != null) {
+                screen.loginError("Nem sikerült a bejelentkezés.");
+            }
+        } else {
+            if (screen != null) {
+                if (event.isSuccess()) {
+                    executor.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            userInteractor.saveUser(event.getUser());
+                        }
+                    });
+                } else {
+                    screen.loginError("Rossz felhasználónév vagy jelszó.");
+                }
             }
         }
     }

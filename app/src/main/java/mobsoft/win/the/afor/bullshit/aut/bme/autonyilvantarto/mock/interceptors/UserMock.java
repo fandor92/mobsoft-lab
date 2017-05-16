@@ -21,18 +21,11 @@ public class UserMock {
         Headers headers = request.headers();
 
 
-        if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "user/login") && request.method().equals("Get")) {
-            User postedUser = GsonHelper.getGson().fromJson(request.body().toString(), User.class);
-            if (postedUser.getEmail().equals(user.getEmail()) && postedUser.getPassword().equals(user.getPassword())) {
-                responseString = "Ok";
-                responseCode = 200;
-            } else {
-                responseString = "Invalid username/password";
-                responseCode = 401;
-            }
-
+        if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "user/login") && request.method().equals("GET")) {
+            responseString = GsonHelper.getGson().toJson("OK");
+            responseCode = 200;
         } else {
-            responseString = "ERROR";
+            responseString = GsonHelper.getGson().toJson("ERROR");
             responseCode = 503;
         }
 

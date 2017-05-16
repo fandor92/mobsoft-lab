@@ -6,6 +6,7 @@ import dagger.Component;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.InteractorModule;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.CarInteractor;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.UserInteractor;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.mock.MockNetworkModule;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.repository.RepositoryModule;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.UIModule;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.cardetails.CarDetailsActivity;
@@ -22,7 +23,7 @@ import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.newcar.NewCarPr
  */
 
 @Singleton
-@Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class})
+@Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class, MockNetworkModule.class})
 public interface AutonyilvantartoApplicationComponent {
     void inject(LoginActivity loginActivity);
     void inject(CarListActivity carListActivity);

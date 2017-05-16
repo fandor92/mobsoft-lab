@@ -11,9 +11,8 @@ import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.eve
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.events.GetCarsEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.events.SaveCarEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.network.api.CarApi;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.repository.Repository;
-
-import static mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.repository.MemoryRepository.cars;
 
 public class CarInteractor {
 
@@ -21,6 +20,8 @@ public class CarInteractor {
 	Repository repository;
 	@Inject
 	EventBus bus;
+    @Inject
+    CarApi carApi;
 
 	public CarInteractor() {
 		AutonyilvantartoApplication.injector.inject(this);
@@ -41,7 +42,8 @@ public class CarInteractor {
 	public void getCars() {
 		GetCarsEvent event = new GetCarsEvent();
 		try {
-			List<Car> cars = repository.getCars();
+            carApi.carGet().execute();
+            List<Car> cars = repository.getCars();
 			event.setCars(cars);
 			bus.post(event);
 		} catch (Exception e) {

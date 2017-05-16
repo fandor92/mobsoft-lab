@@ -21,6 +21,9 @@ public class CarDetailsPresenter extends Presenter<CarDetailsScreen> {
     CarInteractor carInteractor;
 
     @Inject
+    UserInteractor userInteractor;
+
+    @Inject
     Executor executor;
 
     @Inject
@@ -56,6 +59,15 @@ public class CarDetailsPresenter extends Presenter<CarDetailsScreen> {
             @Override
             public void run() {
                 carInteractor.deleteCar(car);
+            }
+        });
+    }
+
+    public void logout() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userInteractor.deleteUser();
             }
         });
     }

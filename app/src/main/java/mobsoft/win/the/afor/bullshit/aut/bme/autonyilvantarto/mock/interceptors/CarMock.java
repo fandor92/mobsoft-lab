@@ -39,12 +39,12 @@ public class CarMock {
         cars.add(car7);
 
         if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "car") && request.method().equals("POST")) {
-            responseString = "";
+            responseString = GsonHelper.getGson().toJson("OK");
             responseCode = 200;
-        } else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "car") && request.method().equals("Get")) {
+        } else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "car") && request.method().equals("GET")) {
             responseString = GsonHelper.getGson().toJson(cars);
             responseCode = 200;
-        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "car\\/" + "\\d+") && request.method().equals("Get")) {
+        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "car\\/" + "\\d+") && request.method().equals("GET")) {
             long id = Long.parseLong(uri.getPath().substring(uri.getPath().lastIndexOf("/")));
 
             Car returnCar = null;
@@ -58,20 +58,20 @@ public class CarMock {
                 responseString = GsonHelper.getGson().toJson(returnCar);
                 responseCode = 200;
             } else {
-                responseString = "";
+                responseString = GsonHelper.getGson().toJson("ERROR");
                 responseCode = 404;
             }
 
-        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "todo\\/" + "\\d+") && request.method().equals("Put")) {
+        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "todo\\/" + "\\d+") && request.method().equals("PUT")) {
 
-            responseString = "Ok";
+            responseString = GsonHelper.getGson().toJson("OK");
             responseCode = 200;
-        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "todo\\/" + "\\d+") && request.method().equals("Delete")) {
+        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "todo\\/" + "\\d+") && request.method().equals("DELETE")) {
 
-            responseString = "Ok";
+            responseString = GsonHelper.getGson().toJson("OK");
             responseCode = 200;
         } else {
-            responseString = "ERROR";
+            responseString = GsonHelper.getGson().toJson("ERROR");
             responseCode = 503;
         }
 

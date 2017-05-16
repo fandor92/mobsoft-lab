@@ -8,6 +8,7 @@ import de.greenrobot.event.EventBus;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.CarInteractor;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.events.GetCarEvent;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.car.events.SaveCarEvent;
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.Interactor.user.UserInteractor;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.Presenter;
 
@@ -17,6 +18,9 @@ public class NewCarPresenter extends Presenter<NewCarScreen> {
 
     @Inject
     CarInteractor carInteractor;
+
+    @Inject
+    UserInteractor userInteractor;
 
     @Inject
     Executor executor;
@@ -45,6 +49,15 @@ public class NewCarPresenter extends Presenter<NewCarScreen> {
             @Override
             public void run() {
                 carInteractor.saveCar(car);
+            }
+        });
+    }
+
+    public void logout() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userInteractor.deleteUser();
             }
         });
     }
