@@ -76,7 +76,7 @@ public class MemoryRepository implements Repository {
 	public void saveCar(Car car) {
 		if (car.getId() != null)
 		{
-			cars.set(cars.indexOf(car), car);
+			cars.set(cars.indexOf(getCar(car.getId())), car);
 		}
 		else
 		{

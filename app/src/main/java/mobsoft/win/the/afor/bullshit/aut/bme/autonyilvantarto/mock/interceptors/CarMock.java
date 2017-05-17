@@ -62,11 +62,11 @@ public class CarMock {
                 responseCode = 404;
             }
 
-        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "todo\\/" + "\\d+") && request.method().equals("PUT")) {
+        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "car\\/" + "\\d+") && request.method().equals("PUT")) {
 
             responseString = GsonHelper.getGson().toJson("OK");
             responseCode = 200;
-        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "todo\\/" + "\\d+") && request.method().equals("DELETE")) {
+        } else if (uri.getPath().matches("\\" + NetworkConfig.ENDPOINT_PREFIX + "car\\/" + "\\d+") && request.method().equals("DELETE")) {
 
             responseString = GsonHelper.getGson().toJson("OK");
             responseCode = 200;
