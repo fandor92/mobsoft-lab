@@ -1,13 +1,11 @@
 package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.newcar;
 
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
+
 public interface NewCarScreen {
-    void showMessage(String text);
+    void fillValues(Car car);
 
-    void showSuccessfulCreate(String s);
+    void showSuccess(String message);
 
-    void showFailedCreate(String s);
-
-    void showSuccessfulEdit(String s);
-
-    void showFailedulEdit(String s);
+    void showFail(String message);
 }

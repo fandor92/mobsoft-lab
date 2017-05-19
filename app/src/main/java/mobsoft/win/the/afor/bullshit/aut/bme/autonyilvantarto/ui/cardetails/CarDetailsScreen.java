@@ -1,7 +1,11 @@
 package mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.cardetails;
 
+import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.model.Car;
+
 public interface CarDetailsScreen {
-    void showDetails(String showCar);
-    void showDeleteSuccessPopup(String message);
-    void showDeleteFailPopup(String message);
+    void showDetails(Car car);
+
+    void showSuccess(String message);
+
+    void showFail(String message);
 }

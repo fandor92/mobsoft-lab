@@ -41,7 +41,7 @@ script: ./gradlew :app:build
 
 
 notifications:
-  email:
+  brand:
     recipients:
     - fandor92@gmail.com
     on_failure: always

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/plateNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Rendszám"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/mileageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/plateNumberText"
+        android:layout_below="@+id/plateNumberText"
+        android:ems="10"
+        android:hint="Futott km"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/engineText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/mileageText"
+        android:layout_below="@+id/mileageText"
+        android:ems="10"
+        android:hint="Hengerűrtartalom"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/yearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/engineText"
+        android:layout_below="@+id/engineText"
+        android:ems="10"
+        android:hint="Évjárat"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/yearText"
+        android:layout_below="@+id/yearText"
+        android:layout_marginTop="18dp"
+        android:text="Márka:"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Üzemanyag:"
+        android:textSize="16sp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_below="@+id/textView10"
+        android:layout_marginTop="18dp"
+        android:text="Típus:" />
+
+    <Spinner
+        android:id="@+id/brandSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/yearText"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toEndOf="@+id/textView10" />
+
+    <Spinner
+        android:id="@+id/fuelSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/brandSpinner"
+        android:layout_alignTop="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10" />
+
+    <Spinner
+        android:id="@+id/typeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/fuelSpinner"
+        android:layout_alignStart="@+id/fuelSpinner"
+        android:layout_alignTop="@+id/textView11" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="Mentés" />
+
+</RelativeLayout>

@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">AutoNyilvantarto</string>
+    <string-array name="brands_array">
+        <item>Honda</item>
+        <item>BMW</item>
+        <item>Mercedes</item>
+        <item>Volvo</item>
+        <item>Audi</item>
+    </string-array>
+    <string-array name="fuel_array">
+        <item>LPG</item>
+        <item>Diesel</item>
+        <item>Petrol</item>
+        <item>Electric</item>
+    </string-array>
+    <string-array name="type_array">
+        <item>Sedan</item>
+        <item>Coupe</item>
+        <item>Hatchback</item>
+    </string-array>
 </resources>
