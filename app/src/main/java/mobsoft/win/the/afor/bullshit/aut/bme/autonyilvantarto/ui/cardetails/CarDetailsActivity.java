@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import javax.inject.Inject;
 
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
@@ -21,6 +24,7 @@ public class CarDetailsActivity extends AppCompatActivity implements CarDetailsS
 
     @Inject
     CarDetailsPresenter carDetailsPresenter;
+    Tracker mTracker;
 
     TextView plateNumber;
     TextView mileage;
@@ -36,6 +40,9 @@ public class CarDetailsActivity extends AppCompatActivity implements CarDetailsS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardetails);
         AutonyilvantartoApplication.injector.inject(this);
+        // Obtain the shared Tracker instance.
+        AutonyilvantartoApplication application = (AutonyilvantartoApplication) getApplication();
+        mTracker = application.getDefaultTracker();
         plateNumber = (TextView) findViewById(R.id.plateNumberTV);
         mileage = (TextView) findViewById(R.id.mileageTV);
         engine = (TextView) findViewById(R.id.engineTV);
@@ -51,6 +58,13 @@ public class CarDetailsActivity extends AppCompatActivity implements CarDetailsS
         super.onStart();
         carDetailsPresenter.attachScreen(this);
         carDetailsPresenter.getCar(carId);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTracker.setScreenName("Image~CarDetailsScreen");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override

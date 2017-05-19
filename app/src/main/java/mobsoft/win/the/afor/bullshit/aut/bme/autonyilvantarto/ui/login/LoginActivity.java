@@ -8,8 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import javax.inject.Inject;
 
+import io.fabric.sdk.android.Fabric;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.AutonyilvantartoApplication;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.R;
 import mobsoft.win.the.afor.bullshit.aut.bme.autonyilvantarto.ui.carlist.CarListActivity;
@@ -18,13 +23,18 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
     @Inject
     LoginPresenter loginPresenter;
+    Tracker mTracker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         AutonyilvantartoApplication.injector.inject(this);
-
+        Fabric.with(this, new Crashlytics());
+        // Obtain the shared Tracker instance.
+        AutonyilvantartoApplication application = (AutonyilvantartoApplication) getApplication();
+        mTracker = application.getDefaultTracker();
         Button loginButton = (Button) findViewById(R.id.loginButton);
         final EditText emailInput = (EditText) findViewById(R.id.emailInput);
         final EditText passwordInput = (EditText) findViewById(R.id.passwordInput);
@@ -35,6 +45,13 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
                 loginPresenter.doLogin(emailInput.getText().toString(), passwordInput.getText().toString());
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTracker.setScreenName("Image~LoginScreen");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override

@@ -38,7 +38,7 @@ public class CarListTest {
     }
 
     @Test
-    public void testGetDocuments() {
+    public void testGetCars() {
         CarListScreen screen = mock(CarListScreen.class);
         carListPresenter.attachScreen(screen);
 
